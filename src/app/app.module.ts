@@ -20,9 +20,10 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { HeroesComponent } from './heroes/heroes.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeroesComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
