@@ -70,7 +70,35 @@ import {
           },
         }),
       ],
-      forms: {},
+      forms: {
+        login: {
+          redirectDelay: 0,
+          showMessages: {
+            success: true,
+          },
+        },
+        register: {
+          redirectDelay: 0,
+          showMessages: {
+            success: true,
+          },
+        },
+        requestPassword: {
+          redirectDelay: 0,
+          showMessages: {
+            success: true,
+          },
+        },
+        resetPassword: {
+          redirectDelay: 0,
+          showMessages: {
+            success: true,
+          },
+        },
+        logout: {
+          redirectDelay: 0,
+        }
+      },
     }), 
 
   ],
