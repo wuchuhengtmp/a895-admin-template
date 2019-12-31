@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
+import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
 
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -22,6 +22,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { AuthGuard } from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,11 +47,18 @@ import {
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-
+          token: {
+            class: NbAuthJWTToken,
+            key: 'access_token', 
+          },
           baseEndpoint: 'https://a895.mxnt.net',
           login: {
             endpoint: '/api/authorizations',
             method: 'post',
+            redirect: {
+              success: '/pages/modal-overlays/window',
+              failure: null, // stay on the same page
+            },
           },
           register: {
             endpoint: '/auth/sign-up',
@@ -101,6 +109,9 @@ import {
       },
     }), 
 
+  ],
+  providers: [
+    AuthGuard
   ],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,5 @@
-<h1 id="title" class="title">Login</h1>
-<p class="sub-title">Hello! Log in with your email.</p>
+<h1 id="title" class="title">登录</h1>
+<p class="sub-title">请使用邮箱登录</p>
 
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
   <p class="alert-title"><b>Oh snap!</b></p>
@@ -33,10 +33,10 @@
            [attr.aria-invalid]="email.invalid && email.touched ? true : null">
     <ng-container *ngIf="email.invalid && email.touched">
       <p class="error-message" *ngIf="email.errors?.required">
-        Email is required!
+        邮箱地址必须填写
       </p>
       <p class="error-message" *ngIf="email.errors?.pattern">
-        Email should be the real one!
+         请输入真实的邮箱
       </p>
     </ng-container>
   </div>
@@ -79,7 +79,7 @@
           status="success"
           [disabled]="submitted || !form.valid"
           [class.btn-pulse]="submitted">
-    Log In
+    登 入
   </button>
 </form>
 
