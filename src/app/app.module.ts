@@ -23,6 +23,11 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { AuthGuard } from './auth/auth-guard.service';
+import { NoopInterceptor } from './http-interceptors/noop-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true },
+];
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,16 +54,17 @@ import { AuthGuard } from './auth/auth-guard.service';
           name: 'email',
           token: {
             class: NbAuthJWTToken,
-            key: 'access_token', 
+            key: 'data.access_token', 
           },
           baseEndpoint: 'https://a895.mxnt.net',
           login: {
-            endpoint: '/api/authorizations',
+            endpoint: '/api/admin/authorizations',
             method: 'post',
             redirect: {
-              success: '/pages/modal-overlays/window',
+              success: '/pages/dashboard',
               failure: null, // stay on the same page
             },
+            defaultErrors: ['登录失败，请查看账号密码是否正确'],
           },
           register: {
             endpoint: '/auth/sign-up',
@@ -111,7 +117,8 @@ import { AuthGuard } from './auth/auth-guard.service';
 
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    httpInterceptorProviders 
   ],
   bootstrap: [AppComponent],
 })

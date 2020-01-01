@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://a895.mxnt.net",
+      "secure": false
+    }
+  }
