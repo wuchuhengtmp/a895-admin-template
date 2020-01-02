@@ -13,7 +13,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
-    title: 'FEATURES',
+    title: '功能表',
     group: true,
   },
   {
@@ -244,14 +244,24 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-   {
-     title: '会员',
-     icon: 'people-outline',
-     children: [
-       {
-         title: '会员管理',
-         link: '/pages/users/list',
-       }
-     ],
-   },
+  {
+    title: '会员',
+    icon: 'people-outline',
+    children: [
+      {
+        title: '会员管理',
+        link: '/pages/users/list',
+      }
+    ],
+  },
+  {
+    title: '设置',
+    icon: 'settings-outline',
+    children: [
+      {
+        title: '系统设置',
+        link: '/pages/settings/system',
+      },
+    ],
+  },
 ];

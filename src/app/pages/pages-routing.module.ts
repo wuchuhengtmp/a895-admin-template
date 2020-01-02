@@ -74,6 +74,11 @@ const routes: Routes = [{
         .then(m => m.TablesModule),
     },
     {
+      path: 'settings',
+      loadChildren: () => import('./setting/layout.module')
+        .then(m => m.LayoutModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
