@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/zh-Hans';
 
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -25,6 +27,9 @@ import {
 import { AuthGuard } from './auth/auth-guard.service';
 import { NoopInterceptor } from './http-interceptors/noop-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+registerLocaleData(localeFr, 'zh-Hans');
+
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true },
 ];

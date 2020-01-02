@@ -244,4 +244,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+   {
+     title: '会员',
+     icon: 'people-outline',
+     children: [
+       {
+         title: '会员管理',
+         link: '/pages/users/list',
+       }
+     ],
+   },
 ];
